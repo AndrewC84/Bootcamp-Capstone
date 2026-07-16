@@ -25,11 +25,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install ansible-lint molecule
 
-      - name: Run fixes for Ansible Lint
-        run: ansible-lint --fix  # Automatically fix linting issues
-
       - name: Ansible Lint
-        run: ansible-lint  # Code quality check
+        run: ansible-lint --fix . # Code quality check and fixing
       
       - name: Molecule Test
         run: molecule test  # Run Molecule tests
