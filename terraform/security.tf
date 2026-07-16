@@ -20,6 +20,14 @@ resource "aws_security_group" "linux" {
     cidr_blocks = [var.ssh_allowed_cidr]
   }
 
+  ingress {
+    description = "HTTP access to capstone status page"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = [var.http_allowed_cidr]
+  }
+
   egress {
     description = "Allow all outbound traffic"
     from_port   = 0
