@@ -55,3 +55,13 @@ variable "ssh_allowed_cidr" {
     error_message = "ssh_allowed_cidr must be a valid IPv4 CIDR, such as 203.0.113.10/32."
   }
 }
+
+variable "http_allowed_cidr" {
+  description = "IPv4 CIDR allowed to access the capstone status page"
+  type        = string
+
+  validation {
+    condition     = can(cidrhost(var.http_allowed_cidr, 0))
+    error_message = "http_allowed_cidr must be a valid IPv4 CIDR, such as 0.0.0.0/0."
+  }
+}
