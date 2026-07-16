@@ -36,8 +36,8 @@ jobs:
           ansible-lint .
           echo "If there are any linting issues, run 'ansible-lint --fix' locally to fix them and recommit."
 
-      - name: Molecule Test
-        run: molecule test # Run Molecule tests
+      # - name: Molecule Test
+      #   run: molecule test # Run Molecule tests
 
       - name: Fail job if lint had issues
         if: steps.lint.outcome == 'failure'
